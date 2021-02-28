@@ -1,0 +1,21 @@
+{
+    "name": "softechlove/sohagjone",
+    "description": "My First Plugin",
+    "type": "wordpress-plugin",
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "sohagjone",
+            "email": "sohagjone@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Softechlove\\Sohagjone\\": "includes/"
+        },
+        "files": []
+    }
+}
+

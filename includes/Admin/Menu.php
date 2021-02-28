@@ -20,7 +20,11 @@ class Menu {
      * @return void
      */
     public function admin_menu() {
-        add_menu_page( __( 'Softechlove', 'softechlove' ), __( 'Sohagjone', 'softechlove' ), 'manage_options', 'softechlove', [ $this, 'plugin_page' ], 'dashicons-welcome-learn-more' );
+        $parent_slug = 'softechlove';
+        $capibility = 'manage_options';
+        add_menu_page( __( 'Softechlove', 'softechlove' ), __( 'Sohagjone', 'softechlove' ), $capibility, $parent_slug, [ $this, 'addressbook_page' ], 'dashicons-welcome-learn-more' );
+        add_submenu_page($parent_slug, __('Address Book', 'softechlove'), __('Address Book', 'softechlove'), $capibility, $parent_slug, [$this, 'addressbook_page']);
+        add_submenu_page($parent_slug, __('Settings', 'softechlove'), __('Settings', 'softechlove'), $capibility, 'softechlove-setting', [$this, 'settings_page']);
     }
 
     /**
@@ -28,7 +32,13 @@ class Menu {
      *
      * @return void
      */
-    public function plugin_page() {
-        echo 'Hello World';
+    public function addressbook_page()
+    {
+        $addressbook = new Addressbook();
+        $addressbook->plugin_page();
+    }
+    public function settings_page()
+    {
+        echo "New Settings Page";
     }
 }
